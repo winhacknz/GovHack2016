@@ -12,7 +12,7 @@ namespace WinHackNZ.Controllers
         public string Get()
         {
             // TODO: remove testing code
-            var dimension = "housing";
+            var dimension = "housing.json";
             var category = "Housing";
             var result = dbStore.GetDataBy(category, dimension);
             return result;
