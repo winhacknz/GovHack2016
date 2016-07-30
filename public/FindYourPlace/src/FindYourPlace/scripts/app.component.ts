@@ -7,10 +7,11 @@ import 'rxjs/Rx';
 
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
+import { SafetyComponent } from './safety/safety.component';
 
 @Component({
     selector: 'my-app',
-    directives: [NgSwitch, NgSwitchDefault, HomeComponent, AboutComponent, ROUTER_DIRECTIVES],
+    directives: [NgSwitch, NgSwitchDefault, HomeComponent, AboutComponent, SafetyComponent, ROUTER_DIRECTIVES],
     templateUrl: '/app/app.html'
 })
 export class AppComponent {
