@@ -32,5 +32,17 @@ namespace WinHackNZ.Helper
 
             return JObject.Parse(json);
         }
+
+        public static JObject GetRegionData()
+        {             
+            var endPoint = @"https://4ab786da-1405-4cc7-8b8b-e53b5def3a2a-bluemix.cloudant.com/regionstats/_all_docs?include_docs=true&conflicts=true";
+            var basicAuth = @"Authorization: Basic NGFiNzg2ZGEtMTQwNS00Y2M3LThiOGItZTUzYjVkZWYzYTJhLWJsdWVtaXg6YTUxODEyOTU2N2I5ZmJkOTE3ZjhiMmRlM2NlMDM1MzBlN2E2YTYxODU5MzY1M2Y0Y2Y1NmJkOTBkNGNjZTUzMw==";
+            var headers = new WebHeaderCollection();
+            headers.Add(basicAuth);
+            var client = new RestClient(endPoint);
+            var json = client.MakeRequest();
+
+            return JObject.Parse(json);
+        }
     }
 }

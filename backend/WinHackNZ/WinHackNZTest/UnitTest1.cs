@@ -20,5 +20,12 @@ namespace WinHackNZTest
             var x = ExternalServices.GetBadCityNew("Auckland");
             Assert.IsNotNull(x);
         }
+
+        [TestMethod]
+        public void Test_Get_External_Date()
+        {
+            var x = ExternalServices.GetRegionData();
+            Assert.IsNotNull(x);
+        }
     }
 }
