@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Net;
+using System.Web.Http;
 using WinHackNZ.Helper;
 
 namespace WinHackNZ.Controllers
@@ -9,10 +10,9 @@ namespace WinHackNZ.Controllers
         // GET api/
         public string Get()
         {
-            var endPoint = @"http:\\myRestService.com\api\";
-
-            var client = new RestClient(endPoint);
-            var json = client.MakeRequest();
+            var endPoint    = @"http:\\myRestService.com\api\";  
+            var client  = new RestClient(endPoint);
+            var json    = client.MakeRequest();
 
             return json;
         }

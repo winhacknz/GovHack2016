@@ -25,6 +25,7 @@ namespace WinHackNZ.Helper
         public HttpVerb Method { get; set; }
         public string ContentType { get; set; }
         public string PostData { get; set; }
+        public WebHeaderCollection Headers { get; set; }
 
         public RestClient()
         {
@@ -56,7 +57,6 @@ namespace WinHackNZ.Helper
             PostData = postData;
         }
 
-
         public string MakeRequest()
         {
             return MakeRequest("");
@@ -69,6 +69,11 @@ namespace WinHackNZ.Helper
             request.Method = Method.ToString();
             request.ContentLength = 0;
             request.ContentType = ContentType;
+
+            if(Headers != null)
+            {
+                request.Headers = Headers;
+            }           
 
             if (!string.IsNullOrEmpty(PostData) && Method == HttpVerb.POST)
             {
