@@ -14,7 +14,6 @@ C:\GovHack2016\GovHack2016\backend\WinHackNZ\WinHackNZTest\bin\Debug\System.Web.
 C:\GovHack2016\GovHack2016\backend\WinHackNZ\WinHackNZTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\GovHack2016\GovHack2016\backend\WinHackNZ\WinHackNZTest\bin\Debug\System.Web.Http.Owin.dll
 C:\GovHack2016\GovHack2016\backend\WinHackNZ\WinHackNZTest\bin\Debug\System.Net.Http.Formatting.dll
-C:\GovHack2016\GovHack2016\backend\WinHackNZ\WinHackNZTest\bin\Debug\Newtonsoft.Json.dll
 C:\GovHack2016\GovHack2016\backend\WinHackNZ\WinHackNZTest\bin\Debug\EntityFramework.dll
 C:\GovHack2016\GovHack2016\backend\WinHackNZ\WinHackNZTest\bin\Debug\Microsoft.Owin.Security.Cookies.dll
 C:\GovHack2016\GovHack2016\backend\WinHackNZ\WinHackNZTest\bin\Debug\System.Web.Http.WebHost.dll
