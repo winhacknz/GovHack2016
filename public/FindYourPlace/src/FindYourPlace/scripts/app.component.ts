@@ -6,11 +6,11 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import 'rxjs/Rx';
 
 import { HomeComponent } from './home.component';
-import { Page2Component } from './page2.component';
+import { AboutComponent } from './about.component';
 
 @Component({
     selector: 'my-app',
-    directives: [NgSwitch, NgSwitchDefault, HomeComponent, Page2Component, ROUTER_DIRECTIVES],
+    directives: [NgSwitch, NgSwitchDefault, HomeComponent, AboutComponent, ROUTER_DIRECTIVES],
     templateUrl: '/app/app.html'
 })
 export class AppComponent {

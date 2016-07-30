@@ -5,7 +5,6 @@ var del = require("del");
 var less = require("gulp-less");
 var cssmin = require("gulp-cssmin");
 var rename = require("gulp-rename");
-var htmlmin = require("gulp-htmlmin");
 var runSeq = require("run-sequence");
 var path = require("path");
 
@@ -94,13 +93,13 @@ gulp.task("css",
 
 gulp.task("fonts",
     function () {
-        return gulp.src("./content/**/*.+(woff|eot|ttf|woff2)")
+        return gulp.src("./content/**/*.+(otf|ttf)")
             .pipe(gulp.dest("./wwwroot/libs"));
     });
 
 gulp.task("images",
     function () {
-        return gulp.src("./content/**/*.+(png|svg)")
+        return gulp.src("./content/**/*.+(jpg|svg)")
             .pipe(gulp.dest("./wwwroot/libs"));
     });
 
