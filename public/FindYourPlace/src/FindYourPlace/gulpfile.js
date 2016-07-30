@@ -7,7 +7,6 @@ var cssmin = require("gulp-cssmin");
 var rename = require("gulp-rename");
 var runSeq = require("run-sequence");
 var path = require("path");
-var flatten = require('gulp-flatten');
 
 gulp.task("clean.libs", function () {
 	del("./wwwroot/libs")
