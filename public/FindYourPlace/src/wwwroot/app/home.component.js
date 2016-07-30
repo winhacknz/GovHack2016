@@ -9,17 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 require('rxjs/Rx');
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(route, router) {
+        this.route = route;
+        this.router = router;
     }
+    HomeComponent.prototype.goToStart = function () {
+        this.router.navigate(['/start']);
+    };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'home',
             directives: [],
             templateUrl: '/app/home.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
     ], HomeComponent);
     return HomeComponent;
 }());

@@ -5,13 +5,14 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import 'rxjs/Rx';
 
 @Component({
-    selector: 'page2',
+    selector: 'results',
     directives: [],
-    templateUrl: '/app/page2.html'
+    templateUrl: '/app/results.html'
 })
-export class Page2Component {
+export class ResultsComponent {
 
     constructor() {
 
     }
+
 }

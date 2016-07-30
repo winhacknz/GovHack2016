@@ -8,10 +8,12 @@ import 'rxjs/Rx';
 import { HomeComponent } from './home.component';
 import { AboutComponent } from './about.component';
 import { SafetyComponent } from './safety/safety.component';
+import { FormComponent } from './form.component';
+import { ResultsComponent } from './results.component';
 
 @Component({
     selector: 'my-app',
-    directives: [NgSwitch, NgSwitchDefault, HomeComponent, AboutComponent, SafetyComponent, ROUTER_DIRECTIVES],
+    directives: [NgSwitch, NgSwitchDefault, HomeComponent, AboutComponent, SafetyComponent, FormComponent, ResultsComponent, ROUTER_DIRECTIVES],
     templateUrl: '/app/app.html'
 })
 export class AppComponent {

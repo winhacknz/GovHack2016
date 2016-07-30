@@ -14,7 +14,8 @@ var common_1 = require('@angular/common');
 var router_1 = require('@angular/router');
 require('rxjs/Rx');
 var home_component_1 = require('./home.component');
-var page2_component_1 = require('./page2.component');
+var about_component_1 = require('./about.component');
+var safety_component_1 = require('./safety/safety.component');
 var AppComponent = (function () {
     //headerUrl: string;
     //footerUrl: string;
@@ -25,7 +26,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            directives: [common_1.NgSwitch, common_1.NgSwitchDefault, home_component_1.HomeComponent, page2_component_1.Page2Component, router_1.ROUTER_DIRECTIVES],
+            directives: [common_1.NgSwitch, common_1.NgSwitchDefault, home_component_1.HomeComponent, about_component_1.AboutComponent, safety_component_1.SafetyComponent, router_1.ROUTER_DIRECTIVES],
             templateUrl: '/app/app.html'
         }), 
         __metadata('design:paramtypes', [])

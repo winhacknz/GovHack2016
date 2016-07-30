@@ -9,6 +9,7 @@ import { SafetyService } from './safety/service.safety';
 import { Configuration } from './common/app.constants';
 
 bootstrap(AppComponent, [
+    disableDeprecatedForms(),
     appRouterProviders,
     HTTP_PROVIDERS,
     Http,

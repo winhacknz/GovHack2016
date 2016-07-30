@@ -53,8 +53,7 @@ gulp.task("libs", () => {
 var tsProject = ts.createProject("tsconfig.json");
 gulp.task("ts", function (done) {
     var tsResult = gulp.src([
-            "./scripts/**/*.ts",
-            "./src/**/*.ts"
+            "./scripts/**/*.ts"
     ])
         .pipe(ts(tsProject), undefined, ts.reporter.fullReporter());
     return tsResult.js.pipe(gulp.dest("./wwwroot/app"));
@@ -62,7 +61,7 @@ gulp.task("ts", function (done) {
 
 gulp.task("js",
     function () {
-        return gulp.src(["./scripts/**/*.js", "./src/**/*.js"])
+        return gulp.src(["./scripts/**/*.js"])
         .pipe(gulp.dest("./wwwroot/app"));
     });
 
