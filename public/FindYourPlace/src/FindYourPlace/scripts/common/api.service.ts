@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, ConnectionBackend } from '@angular/http';
+import { Http, HTTP_PROVIDERS, Response, Headers, ConnectionBackend } from '@angular/http';
 import 'rxjs/add/operator/map'
+import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { Configuration } from './app.constants';
 
@@ -11,7 +12,6 @@ export class ApiService {
     private headers: Headers;
  
     constructor(private _http: Http, private _configuration: Configuration) {
- 
         this.endpoint = _configuration.ServerWithApiUrl;
 
         this.headers = new Headers();

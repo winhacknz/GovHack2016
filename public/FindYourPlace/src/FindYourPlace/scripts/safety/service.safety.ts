@@ -10,7 +10,7 @@ export class SafetyService {
     }
 
     public getCrimeData(){
-        var crimeRaw = this._apiService.get('crime');
+        var crimeRaw = this._apiService.get('crime.json');
 
         this.crimeData = new Array<Crime>();
 
