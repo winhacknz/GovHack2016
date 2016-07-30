@@ -1,6 +1,4 @@
-﻿using System;
-using System.Web.Configuration;
-using System.Web.Http;
+﻿using System.Web.Http;
 using WinHackNZ.Helper;
 
 namespace WinHackNZ.Controllers
@@ -8,20 +6,15 @@ namespace WinHackNZ.Controllers
     [RoutePrefix("api/crime")]
     public class CrimeController : ApiController
     {
-        private string getDataSrcPath()
-        {
-            var name = WebConfigurationManager.AppSettings["DataStoreSwitch"];
-
-            return DataStoreSwitch.GetSwitchBy(name);
-        }
-
+        DataStore dbStore = new DataStore();
+        
         // GET api/<controller>
         public string Get()
         {
-            var dataSrcPath = getDataSrcPath();
-
-            var result = "";
-
+            // TODO: remove testing code
+            var dimension = "housing";
+            var category = "Housing";
+            var result = dbStore.GetDataBy(category, dimension);
             return result;
         }
 
