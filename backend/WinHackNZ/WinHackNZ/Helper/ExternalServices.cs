@@ -10,9 +10,9 @@ namespace WinHackNZ.Helper
 {
     public class ExternalServices
     {
-        public static JObject GetRentalData(string region)
+        public static JObject GetRentalData(int region)
         {
-            var endPoint    = @"https://api.tmsandbox.co.nz/v1/Search/Property/Rental.json";
+            var endPoint    = string.Format(@"https://api.tmsandbox.co.nz/v1/Search/Property/Rental.json&region={0}", region);
             var oAuthHeader = @"Authorization: OAuth oauth_consumer_key=32038210D256885F3FC11DF0A42DBA89, oauth_signature_method=PLAINTEXT, oauth_signature=89F5A44725D07B153C1163BC1149E932&";
             var headers     = new WebHeaderCollection();
             headers.Add(oAuthHeader);          

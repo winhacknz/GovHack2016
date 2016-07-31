@@ -15,19 +15,29 @@ namespace WinHackNZ.Controllers
 
             for (int i = 0; i < 15; i++)
             {
-                var personalResults               = new PersonalValues();
-                var region                        = regionData["rows"][0]["doc"][i.ToString()]["Regional_Council"].ToString();
-                personalResults.EmploymentRate    = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Employment_rate"].ToString()) * personalValues.EmploymentRate;
-                personalResults.RegionalCrime     = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Security"].ToString()) * personalValues.RegionalCrime;
-                personalResults.LifeSatisfaction  = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Life_sat"].ToString()) * personalValues.LifeSatisfaction;
-                personalResults.HouseSatisfaction = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["House"].ToString()) * personalValues.HouseSatisfaction;
-                personalResults.HealthRating      = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Health_self"].ToString()) * personalValues.HealthRating;
-                personalResults.TotalWeighting    = personalResults.EmploymentRate + personalResults.HealthRating + personalResults.RegionalCrime + personalResults.LifeSatisfaction;
+                var personalResults                          = new PersonalValues();
+                var region                                   = regionData["rows"][0]["doc"][i.ToString()]["Regional_Council"].ToString();
+                personalResults.EmploymentRate               = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Employment_rate"].ToString()) * personalValues.EmploymentRate;
+                personalResults.RegionalCrime                = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Security"].ToString()) * personalValues.RegionalCrime;
+                personalResults.LifeSatisfaction             = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Life_sat"].ToString()) * personalValues.LifeSatisfaction;
+                personalResults.HouseSatisfaction            = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["House"].ToString()) * personalValues.HouseSatisfaction;
+                personalResults.HealthRating                 = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Health_self"].ToString()) * personalValues.HealthRating;
+                personalResults.TelecomunicationAccess       = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Telco_access"].ToString()) * personalValues.TelecomunicationAccess;
+                personalResults.SoloParentConcentration      = float.Parse(regionData["rows"][0]["doc"][i.ToString()]["Sole_parent"].ToString()) * personalValues.SoloParentConcentration;
+
+                personalResults.TotalWeighting    = personalResults.EmploymentRate 
+                                                    + personalResults.HealthRating 
+                                                    + personalResults.RegionalCrime 
+                                                    + personalResults.LifeSatisfaction 
+                                                    + personalResults.SoloParentConcentration
+                                                    + personalResults.TelecomunicationAccess;
 
                 results[region] = personalResults;
             }
 
-            var orderedResults = results.OrderByDescending(x => x.Value.TotalWeighting).ToDictionary(k => k.Key, v => v.Value);
+            var orderedResults = results
+                .OrderByDescending(x => x.Value.TotalWeighting)
+                .ToDictionary(k => k.Key, v => v.Value);
 
             return JObject.Parse(JsonConvert.SerializeObject(orderedResults));             
         }
