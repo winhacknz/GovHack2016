@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WinHackNZ.Helper;
 using WinHackNZ.Controllers;
+using Newtonsoft.Json.Linq;
 
 namespace WinHackNZTest
 {
@@ -11,7 +12,7 @@ namespace WinHackNZTest
         [TestMethod]
         public void Test_Get_Rental()
         {
-            var x = ExternalServices.GetRentalData();
+            var x = ExternalServices.GetRentalData("Auckland");
             Assert.IsNotNull(x);
         }
 
@@ -34,15 +35,21 @@ namespace WinHackNZTest
         {
             var personalValues = new PersonalValues()
             {
-                EmploymentRate = 10,
-                HealthRating = 10,
-                HouseSatisfaction = 10,
-                LifeSatisfaction = 10,
+                EmploymentRate = 1,
+                HealthRating = 2,
+                HouseSatisfaction = 4,
+                LifeSatisfaction = 8,
                 RegionalCrime = 10
             };
 
-            var x = QueryEngine.GetRankings(personalValues);
-            Assert.IsNotNull(x);
+            var queryResult = QueryEngine.GetRankings(personalValues);
+
+            var numberOneRegion = ((JProperty)queryResult.Last).Name;
+            var newsObject = ExternalServices.GetBadCityNew(numberOneRegion);
+
+            queryResult.Add("TopRegionNews", newsObject);
+
+            Assert.IsNotNull(queryResult);
         }
     }
 }

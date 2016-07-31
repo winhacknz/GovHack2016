@@ -14,6 +14,14 @@ namespace WinHackNZ.Controllers
             var personalValues    = new PersonalValues(dataParameters);
             var queryResult       = QueryEngine.GetRankings(personalValues);
 
+            var numberOneRegion = ((JProperty)queryResult.Last).Name;
+            var newsObject = ExternalServices.GetBadCityNew(numberOneRegion);
+
+            queryResult.Add("TopRegionNews", newsObject);
+
+            
+            //ExternalServices.GetRentalData(numberOneRegion);
+
             return queryResult;
         }       
     }

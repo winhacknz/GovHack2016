@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using WinHackNZ.Helper;
+using System.Linq;
 
 namespace WinHackNZ.Controllers
 {
@@ -11,7 +11,7 @@ namespace WinHackNZ.Controllers
         public static JObject GetRankings(PersonalValues personalValues)
         {
             var regionData = ExternalServices.GetRegionData();
-            var results = new Dictionary<string, PersonalValues>();
+            var results = new SortedDictionary<string, PersonalValues>();
 
             for (int i = 0; i < 15; i++)
             {
@@ -25,10 +25,11 @@ namespace WinHackNZ.Controllers
                 personalResults.TotalWeighting    = personalResults.EmploymentRate + personalResults.HealthRating + personalResults.RegionalCrime + personalResults.LifeSatisfaction;
 
                 results[region] = personalResults;
-
             }
-            
-            return JObject.Parse(JsonConvert.SerializeObject(results));             
+
+            var orderedResults = results.OrderByDescending(x => x.Value.TotalWeighting).ToDictionary(k => k.Key, v => v.Value);
+
+            return JObject.Parse(JsonConvert.SerializeObject(orderedResults));             
         }
     }
 }
