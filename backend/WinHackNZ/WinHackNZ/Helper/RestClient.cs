@@ -66,6 +66,15 @@ namespace WinHackNZ.Helper
         {
             var request = (HttpWebRequest)WebRequest.Create(EndPoint + parameters);
 
+            //Remove proxy code prior to web deployment
+            IWebProxy proxy = request.Proxy;
+            if (proxy != null)
+            {                
+                request.UseDefaultCredentials = true;
+                request.Proxy = new WebProxy("http://w8dvaklpx01.ldstatdv.net", false);
+                request.Proxy.Credentials = CredentialCache.DefaultCredentials;
+            }
+
             request.Method = Method.ToString();
             request.ContentLength = 0;
             request.ContentType = ContentType;

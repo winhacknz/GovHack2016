@@ -10,17 +10,20 @@ namespace WinHackNZ.Helper
     {
         public PersonalValues(NameValueCollection dataParameters)
         {
-             LifeSatisfaction  = int.Parse(dataParameters["life_sat"]);
-             HouseSatisfaction = int.Parse(dataParameters["house_sat"]);
-             RegionalCrime     = int.Parse(dataParameters["region_crime"]);
-             HealthRating      = int.Parse(dataParameters["health_rating"]);
-             EmploymentRate    = int.Parse(dataParameters["employ_rate"]) ;
+             LifeSatisfaction  = float.Parse(dataParameters["life_sat"]);
+             HouseSatisfaction = float.Parse(dataParameters["house_sat"]);
+             RegionalCrime     = float.Parse(dataParameters["region_crime"]);
+             HealthRating      = float.Parse(dataParameters["health_rating"]);
+             EmploymentRate    = float.Parse(dataParameters["employ_rate"]) ;
         }
 
-        public int LifeSatisfaction { get; set; }
-        public int HouseSatisfaction { get; set; }
-        public int RegionalCrime { get; set; }
-        public int HealthRating { get; set; }
-        public int EmploymentRate { get; set; }
+        public PersonalValues() { }
+
+        public float LifeSatisfaction { get; set; }
+        public float HouseSatisfaction { get; set; }
+        public float RegionalCrime { get; set; }
+        public float HealthRating { get; set; }
+        public float EmploymentRate { get; set; }        
+        public float TotalWeighting { get; internal set; }
     }
 }
